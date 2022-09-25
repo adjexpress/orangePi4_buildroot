@@ -1,8 +1,6 @@
 #!/bin/bash
-CONTAINET_SRC_PATH="/opt/buildroot"
-CONTAINET_LAB_PATH="/opt/opi4_build_env"
-HOST_SRC_PATH="/home/$USER/workspace/linux/buildroot/buildroot"
-HOST_LAB_PATH="$PWD/external/"
+# set environment variables
+source env.sh
 
 function bind_mount(){
     # unlink $CONTAINET_LAB_PATH

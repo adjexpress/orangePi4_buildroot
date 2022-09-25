@@ -1,6 +1,6 @@
 # source .env
 # make -C ../buildroot menuconfig
-CONFIG=opi_4_rk3399_static_defconfig
+CONFIG=opi_4_rk3399_defconfig
 
 mkdir -p output
 # cp local.mk.tmp output/local.mk
