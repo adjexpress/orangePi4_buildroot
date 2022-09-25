@@ -1,0 +1,14 @@
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+        pre-up /etc/network/nfs_check
+        wait-delay 15
+
+auto wlan0
+iface wlan0 inet dhcp
+        pre-up wpa_supplicant -B -iwlan0 -c/etc/wpa_supplicant.conf
+        post-down killall -q wpa_supplicant
+
+iface default inet dhcp 

@@ -1,0 +1,63 @@
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-orangepi-common.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-orangepi-common.dtsi
+index 621cf34f..c49fe4f1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-orangepi-common.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-orangepi-common.dtsi
+@@ -574,7 +574,7 @@
+ };
+ 
+ &cdn_dp {
+-	status = "okay";
++	status = "disabled";
+ 	extcon = <&fusb0>;
+ 	phys = <&tcphy0_dp>;
+ };
+@@ -863,7 +863,7 @@
+ 		pinctrl-0 = <&fusb0_int>;
+ 		int-n-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+ 		vbus-5v-gpios = <&gpio2 12 GPIO_ACTIVE_HIGH>;
+-		status = "okay";
++		status = "disabled";
+ 	};
+ 
+ 	ft5x06_ts@38 {
+@@ -1038,7 +1038,7 @@
+ 
+ &tcphy0 {
+ 	extcon = <&fusb0>;
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &tcphy1 {
+@@ -1047,8 +1047,8 @@
+ 
+ &u2phy0 {
+ 	status = "okay";
+-	extcon = <&fusb0>;
+-
++	//extcon = <&fusb0>;
++	otg-vbus-gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>; 
+ 	u2phy0_otg: otg-port {
+ 		status = "okay";
+ 	};
+@@ -1074,7 +1074,8 @@
+ 
+ &usbdrd3_0 {
+ 	status = "okay";
+-	extcon = <&fusb0>;
++// 	extcon = <&fusb0>;
++	extcon = <&u2phy0>;
+ };
+ 
+ &usbdrd3_1 {
+@@ -1083,6 +1084,10 @@
+ 
+ &usbdrd_dwc3_0 {
+ 	status = "okay";
++	dr_mode = "otg"; /* Micro USB3控制器的dr_mode配置为otg */
++	maximum-speed = "high-speed"; /* maximum-speed 属性配置为high-speed */
++	phys = <&u2phy0_otg>; /* phys 属性只引用USB2 PHY节点 */
++	phy-names = "usb2-phy";
+ };
+ 
+ &usbdrd_dwc3_1 {

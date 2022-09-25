@@ -1,0 +1,12 @@
+19:10:58 	Error:InitializeUsb-->open device failed,err=-1
+19:11:38 	Error:InitializeUsb-->open device failed,err=-1
+19:15:27 	Error:InitializeUsb-->open device failed,err=-1
+19:16:04 	Error:InitializeUsb-->open device failed,err=-1
+19:17:22 	Error:InitializeUsb-->open device failed,err=-1
+19:19:04 	Error:RKU_Write failed, err=-1
+19:19:16 	Error:InitializeUsb-->open device failed,err=-1
+19:21:02 	Error:InitializeUsb-->open device failed,err=-1
+19:21:12 	Error:RKU_Write failed, err=-1
+19:21:12 	Error: RKU_WriteLBA failed, err=-3
+19:21:25 	Error:InitializeUsb-->open device failed,err=-1
+19:22:36 	Error:InitializeUsb-->open device failed,err=-1

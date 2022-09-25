@@ -1,0 +1,1 @@
+#QT5_OVERRIDE_SRCDIR = $BR2_EXTERNAL/package/qt5 

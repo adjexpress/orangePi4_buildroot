@@ -1,0 +1,71 @@
+# Qt5 has a mechanism to support "device" profiles, so that people can
+# specify the compiler, compiler flags and so on for a specific device.
+
+# We leverage this mechanism in the Buildroot packaging of qt5 to
+# simplify cross-compilation: we have our own "device" definition, which
+# allows us to easily pass the cross-compiler paths and flags from our
+# qt5.mk.
+
+include(../common/linux_device_pre.conf)
+
+
+
+load(device_config)
+
+# modifications to g++-unix.conf
+QMAKE_CC                = $${CROSS_COMPILE}gcc
+QMAKE_CXX               = $${CROSS_COMPILE}g++
+
+QMAKE_AR                = $${CROSS_COMPILE}ar cqs
+QMAKE_OBJCOPY           = $${CROSS_COMPILE}objcopy
+QMAKE_NM                = $${CROSS_COMPILE}nm -P
+QMAKE_STRIP             = $${CROSS_COMPILE}strip
+
+# modifications to gcc-base.conf
+QMAKE_CFLAGS           += $${BR_COMPILER_CFLAGS}
+QMAKE_CXXFLAGS         += $${BR_COMPILER_CXXFLAGS}
+QMAKE_CFLAGS           += -march=armv8-a -mtune=cortex-a53 -mtune=cortex-a72
+
+# Remove all optimisation flags, we really only want our own.
+
+# QMAKE_CFLAGS_OPTIMIZE       =
+# QMAKE_CFLAGS_OPTIMIZE_DEBUG =
+# QMAKE_CFLAGS_OPTIMIZE_FULL  =
+# QMAKE_CFLAGS_OPTIMIZE_SIZE  =
+# QMAKE_CFLAGS_DEBUG =
+# QMAKE_CXXFLAGS_DEBUG =
+# QMAKE_CFLAGS_RELEASE =
+# QMAKE_CXXFLAGS_RELEASE =
+
+# CONFIG                 += strip
+# QMAKE_LIBS             += -lrt -lpthread -ldl
+
+# QMAKE_CFLAGS_ISYSTEM   =
+
+
+QMAKE_INCDIR_EGL        = $$[QT_SYSROOT]/usr/include/EGL
+QMAKE_LIBDIR_EGL        = $$[QT_SYSROOT]/usr/lib/aarch64-linux-gnu
+QMAKE_LIBS_EGL          = -lEGL
+
+QMAKE_INCDIR_OPENGL_ES2 = $$[QT_SYSROOT]/usr/include/GLES2
+QMAKE_LIBDIR_OPENGL_ES2 = $$[QT_SYSROOT]/usr/lib/aarch64-linux-gnu
+QMAKE_LIBS_OPENGL_ES2   = -lGLESv2 -lEGL
+
+QMAKE_INCDIR_GBM = $$[QT_SYSROOT]/usr/include/GBM
+QMAKE_LIBDIR_GBM = $$[QT_SYSROOT]/usr/lib/aarch64-linux-gnu
+QMAKE_LIBS_GBM   = -lgbm -lMali
+
+# QMAKE_INCDIR           += $$[QT_SYSROOT]/usr/include/
+# QMAKE_LIBDIR           += $$[QT_SYSROOT]/lib/aarch64-linux-gnu
+# QMAKE_LIBDIR           += $$[QT_SYSROOT]/usr/lib/aarch64-linux-gnu
+
+
+DISTRO_OPTS += aarch64
+
+# Architecture specific configuration
+
+@EGLFS_DEVICE@
+include(arch.conf)
+
+include(../common/linux_arm_device_post.conf)
+load(qt_config)

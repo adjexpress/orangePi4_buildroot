@@ -1,0 +1,10 @@
+# menu "Graphic libraries and applications (graphic/text)"
+
+comment "rockchip libMali"
+# endmenu
+    source "$BR2_EXTERNAL_OrangePi_4_PATH/package/libmali-midgard/Config.in"
+# comment "rockchip wifi-bt tools"
+#     source "$BR2_EXTERNAL_OrangePi_4_PATH/package/rkwifibt/Config.in"
+menu "Qt5 Single package"
+    source "$BR2_EXTERNAL_OrangePi_4_PATH/package/qt5_single/Config.in"
+endmenu

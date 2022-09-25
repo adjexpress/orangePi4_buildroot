@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_OrangePi_4_PATH/package/Config.in"

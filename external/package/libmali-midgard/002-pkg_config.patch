@@ -1,0 +1,105 @@
+diff --git a/pkgconfig/OpenCL.pc.cmake b/pkgconfig/OpenCL.pc.cmake
+new file mode 100644
+index 0000000..89b66c7
+--- /dev/null
++++ b/pkgconfig/OpenCL.pc.cmake
+@@ -0,0 +1,11 @@
++prefix=/usr
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
++
++Name: OpenCL
++Description: Mali OpenCL library
++Requires.private:
++Version: 1.2
++Libs: -L${libdir} -lMaliOpenCL
++Cflags: -I${includedir} 
+diff --git a/pkgconfig/egl.pc.cmake b/pkgconfig/egl.pc.cmake
+new file mode 100644
+index 0000000..eb3ec16
+--- /dev/null
++++ b/pkgconfig/egl.pc.cmake
+@@ -0,0 +1,12 @@
++prefix=/usr
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
++
++Name: egl
++Description: Mali EGL library
++Requires.private: 
++Version: 7.10
++Libs: -L${libdir} -lEGL
++Libs.private: -lm -lpthread
++Cflags: -I${includedir} 
+diff --git a/pkgconfig/gbm.pc.cmake b/pkgconfig/gbm.pc.cmake
+new file mode 100644
+index 0000000..7e7aefe
+--- /dev/null
++++ b/pkgconfig/gbm.pc.cmake
+@@ -0,0 +1,12 @@
++prefix=/usr
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@/GBM
++
++Name: gbm
++Description: Mali GBM library
++Requires.private: 
++Version: 10.4.0
++Libs: -L${libdir} -lgbm
++Libs.private: 
++Cflags: -I${includedir} 
+diff --git a/pkgconfig/glesv2.pc.cmake b/pkgconfig/glesv2.pc.cmake
+new file mode 100644
+index 0000000..1e5238c
+--- /dev/null
++++ b/pkgconfig/glesv2.pc.cmake
+@@ -0,0 +1,12 @@
++prefix=/usr
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
++
++Name: glesv2
++Description: Mali GLESV2 library
++Requires.private:
++Version:
++Libs: -L${libdir} -lGLESv2
++Libs.private: -lm -lpthread
++Cflags: -I${includedir} 
+diff --git a/pkgconfig/mali.pc.cmake b/pkgconfig/mali.pc.cmake
+new file mode 100644
+index 0000000..cb3958d
+--- /dev/null
++++ b/pkgconfig/mali.pc.cmake
+@@ -0,0 +1,10 @@
++prefix=/usr
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
++
++Name: mali
++Description: Mali EGL library
++Requires.private: 
++Libs: -L${libdir} -lMali
++Cflags: -I${includedir} 
+diff --git a/pkgconfig/wayland-egl.pc.cmake b/pkgconfig/wayland-egl.pc.cmake
+new file mode 100644
+index 0000000..f6aa396
+--- /dev/null
++++ b/pkgconfig/wayland-egl.pc.cmake
+@@ -0,0 +1,12 @@
++prefix=/usr
++exec_prefix=${prefix}
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
++
++Name: wayland-egl
++Description: Mali EGL library
++Requires.private: 
++Version: 7.10
++Libs: -L${libdir} -lMali
++Libs.private: -lm -lpthread
++Cflags: -I${includedir} 

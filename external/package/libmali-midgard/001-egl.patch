@@ -1,0 +1,16 @@
+diff --git a/include/EGL/eglplatform.h b/include/EGL/eglplatform.h
+index 0f5186e..0abf26b 100644
+--- a/include/EGL/eglplatform.h
++++ b/include/EGL/eglplatform.h
+@@ -46,6 +46,11 @@
+  * KHRONOS_APICALL and KHRONOS_APIENTRY are defined in KHR/mali_khrplatform.h
+  */
+ 
++/*
++ * modi to build qt in none x11 mode
++ */
++#define EGL_NO_X11 
++
+ #ifndef EGLAPI
+ #define EGLAPI KHRONOS_APICALL
+ #endif

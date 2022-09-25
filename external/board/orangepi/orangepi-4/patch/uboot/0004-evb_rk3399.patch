@@ -1,0 +1,42 @@
+diff --git a/include/configs/evb_rk3399.h b/include/configs/evb_rk3399.h
+index 5565c7c..8df66d8 100644
+--- a/include/configs/evb_rk3399.h
++++ b/include/configs/evb_rk3399.h
+@@ -9,19 +9,22 @@
+ 
+ #include <configs/rk3399_common.h>
+ 
+-#ifndef CONFIG_SPL_BUILD
+-#undef CONFIG_BOOTCOMMAND
+-#define CONFIG_BOOTCOMMAND RKIMG_BOOTCOMMAND
+-#endif
+ 
+ #define CONFIG_MMC_SDHCI_SDMA
+ #define CONFIG_SYS_MMC_ENV_DEV 0
+ 
+ #define SDRAM_BANK_SIZE			(2UL << 30)
+-#define CONFIG_MISC_INIT_R
+ #define CONFIG_SERIAL_TAG
+ #define CONFIG_ENV_OVERWRITE
+ 
++
++#define CONFIG_SPLASH_SCREEN
++
++/* Enable Misc to show logo */
++#define CONFIG_BOARD_COMMON
++#define CONFIG_MISC_COMMON
++#define CONFIG_MISC_INIT_R
++#define CONFIG_CMD_BMP
+ #define CONFIG_BMP_16BPP
+ #define CONFIG_BMP_24BPP
+ #define CONFIG_BMP_32BPP
+@@ -31,3 +34,9 @@
+ 		"stderr=serial,vidconsole\0"
+ 
+ #endif
++
++#ifndef CONFIG_SPL_BUILD
++#undef CONFIG_BOOTCOMMAND
++#define CONFIG_BOOTCOMMAND RKIMG_BOOTCOMMAND
++#endif
++

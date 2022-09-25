@@ -1,0 +1,12 @@
+config BR2_PACKAGE_QT5_SINGLE_QUICKTIMELINE
+	bool "qt5quicktimeline"
+	depends on BR2_PACKAGE_QT5_SINGLE_JSCORE_AVAILABLE # qt5_single_declarative
+	select BR2_PACKAGE_QT5_SINGLE_DECLARATIVE
+	select BR2_PACKAGE_QT5_SINGLE_DECLARATIVE_QUICK
+	help
+	  Qt is a cross-platform application and UI framework for
+	  developers using C++.
+
+	  This package corresponds to the qt5quicktimeline module.
+
+	  https://doc.qt.io/qt-5/qtquicktimeline-index.html

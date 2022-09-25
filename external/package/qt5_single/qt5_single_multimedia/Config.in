@@ -1,0 +1,17 @@
+config BR2_PACKAGE_QT5_SINGLE_MULTIMEDIA
+	bool "qt5multimedia"
+	select BR2_PACKAGE_ALSA_LIB
+	select BR2_PACKAGE_PULSEAUDIO if BR2_PACKAGE_LIBGLIB2
+	select BR2_PACKAGE_QT5_SINGLE_BASE_GUI
+	select BR2_PACKAGE_QT5_SINGLE_BASE_NETWORK
+	select BR2_PACKAGE_QT5_SINGLE_BASE_OPENGL_LIB if BR2_PACKAGE_QT5_SINGLE_BASE_OPENGL
+	help
+	  Qt is a cross-platform application and UI framework for
+	  developers using C++.
+
+	  The Qt Multimedia module provides a rich feature set that
+	  enables you to easily take advantage of a platform's
+	  multimedia capabilities such as media playback and the use
+	  of camera and radio devices.
+
+	  https://doc.qt.io/qt-5/multimediaoverview.html
