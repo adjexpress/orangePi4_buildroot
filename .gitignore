@@ -1,0 +1,17 @@
+# ignored folders and file types
+external/output
+external/board/orangepi/orangepi-4/tools/rkbin/tools/log/
+external/dl
+external/.auto.deps
+external/.config.cmd
+external/.config.old
+external/..config.tmp
+external/.config
+*.depend
+*.o
+external/*.patch
+external/*.diff
+*.orig
+*.rej
+*~
+*.pyc
