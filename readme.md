@@ -30,10 +30,9 @@ To build *firmware, linux and Qt5 **SDK***  and flash firmware on **OrangePi4** 
  first clone this repo:
 [workspace_container]( github.com/adjexpress/workspace_container)
 
-check your internet connection and
-run `build-Docker-img.sh` as root
-wait until image build process finish.
-
+	check your internet connection and
+	run `build-Docker-img.sh` as root
+	wait until image build process finish.
 2. in root directory of this repo edit `env.sh` file and set ***HOST_SRC_PATH*** varible to **buildroot root directory**.
 like this:
 	```
@@ -79,7 +78,7 @@ cd  output
  make
 ```
 * * *
- ## **Fash**:
+ ## **Flash**:
  The build process will build both SDcard  and EMMC image.
  Images are located in *output/images* directory.
  you can now exit docker container by `exit` command.
