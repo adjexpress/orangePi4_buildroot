@@ -1,5 +1,5 @@
 ##  orangePi4 buildroot external tree
-* * *
+
 
 This repository contains external tree
 To build *firmware, linux and Qt5 **SDK***  and flash firmware on **OrangePi4**  device
