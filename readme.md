@@ -1,3 +1,6 @@
+##  orangePi4 buildroot external tree
+* * *
+
 This repository contains external tree
 To build *firmware, linux and Qt5 **SDK***  and flash firmware on **OrangePi4**  device
 
@@ -90,13 +93,13 @@ dd if=output/images/sdcard.img of=/dev/sdX bs=1M
 where ***X*** in **sdX** is a number that represent your SDcard device.
 insert SDcar into device and plug power suply.
 
-*note that SDcard boot priority is aftet EMMC, therefoe to boot from SDcard you need to **erase** EMMC*
+***note that** SDcard boot priority is after EMMC, therefore to boot from SDcard you need to **erase** EMMC*
 use `board/orangepi/orangepi-4/tools/flash_erase.sh` script to fully erase flash.
 
 **EMMC image:**
 Make sure your user is in ***wheel*** group (for archlinux users).
 
-Hold **recovery button** on your device and plug usb cable to usb guest ( *type-c connector*) in OrangePi4 and wait for *rockusb device* in `Maskrom mode`.
+Hold **recovery button** on your device and plug usb cable to usb guest (*type-c connector*) in OrangePi4 and wait for *rockusb device* in `Maskrom mode`.
 Now from *board/orangepi/orangepi-4* directory run `flash_full.sh` script as root.
 
 This will erase, repartition and write images to device's EMMC.
