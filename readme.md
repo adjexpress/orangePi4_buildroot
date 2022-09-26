@@ -31,7 +31,7 @@ To build *firmware, linux and Qt5 **SDK***  and flash firmware on **OrangePi4** 
 
 1. build docker image:
  first clone this repo:
-[workspace_container]( github.com/adjexpress/workspace_container)
+[workspace_container](https://github.com/adjexpress/workspace_container)
 
 	check your internet connection.
 	run `build-Docker-img.sh` as root.
