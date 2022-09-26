@@ -1,6 +1,5 @@
 ##  orangePi4 buildroot external tree
 
-
 This repository contains external tree
 To build *firmware, linux and Qt5 **SDK***  and flash firmware on **OrangePi4**  device
 
@@ -31,11 +30,12 @@ To build *firmware, linux and Qt5 **SDK***  and flash firmware on **OrangePi4** 
 
 1. build docker image:
  first clone this repo:
-[workspace_container](https://github.com/adjexpress/workspace_container)
+[workspace_container]( github.com/adjexpress/workspace_container)
 
-	check your internet connection.
-	run `build-Docker-img.sh` as root.
+	check your internet connection and
+	run `build-Docker-img.sh` as root
 	wait until image build process finish.
+
 2. in root directory of this repo edit `env.sh` file and set ***HOST_SRC_PATH*** varible to **buildroot root directory**.
 like this:
 	```
@@ -49,6 +49,7 @@ like this:
 In container run  `auto.sh` script to start building.
 it will download about 6 GB of data and need  26 GB of storage space.
 If every thing goes well after few houres *(depends on your network, storage and CPU)* build will finish successfully with this output:
+
 ```
 INFO: hdimage(sdcard.img): adding partition 'loader1' (in MBR) from 'idbloader.img' ...
 INFO: hdimage(sdcard.img): adding partition 'loader2' (in MBR) from 'uboot.img' ...
@@ -84,22 +85,23 @@ cd  output
  The build process will build both SDcard  and EMMC image.
  Images are located in *output/images* directory.
  you can now exit docker container by `exit` command.
- **SD image:**
+
+- **SD image:**
  SDcard image name is `sdcard.img`
  you can use `dd` command to write image to SDcard, like this:
- ```
-dd if=output/images/sdcard.img of=/dev/sdX bs=1M
-```
-where ***X*** in **sdX** is a number that represent your SDcard device.
-insert SDcar into device and plug power suply.
+	 ```
+	dd if=output/images/sdcard.img of=/dev/sdX bs=1M
+	```
+	where ***X*** in **sdX** is a number that represent your SDcard device.
+	insert SDcar into device and plug power suply.
 
-***note that** SDcard boot priority is after EMMC, therefore to boot from SDcard you need to **erase** EMMC*
-use `board/orangepi/orangepi-4/tools/flash_erase.sh` script to fully erase flash.
+	***note that** SDcard boot priority is after EMMC, therefore to boot from SDcard you need to **erase** EMMC*
+	use `board/orangepi/orangepi-4/tools/flash_erase.sh` script to fully erase flash.
 
-**EMMC image:**
-Make sure your user is in ***wheel*** group (for archlinux users).
+- **EMMC image:**
 
-Hold **recovery button** on your device and plug usb cable to usb guest (*type-c connector*) in OrangePi4 and wait for *rockusb device* in `Maskrom mode`.
-Now from *board/orangepi/orangepi-4* directory run `flash_full.sh` script as root.
+    Make sure your user is in ***wheel*** group (for archlinux users).
 
-This will erase, repartition and write images to device's EMMC.
+	Hold **recovery button** on your device and plug usb cable to usb guest ( *type-c connector*) in OrangePi4 and wait for *rockusb device* in `Maskrom mode`.
+	Now from *board/orangepi/orangepi-4* directory run `flash_full.sh` script as root.
+	This will erase, repartition and write images to device's EMMC.
