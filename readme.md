@@ -30,8 +30,8 @@ To build *firmware, linux and Qt5 **SDK***  and flash firmware on **OrangePi4** 
  first clone this repo:
 [workspace_container]( github.com/adjexpress/workspace_container)
 
-	check your internet connection and
-	run `build-Docker-img.sh` as root
+	check your internet connection.
+	run `build-Docker-img.sh` as root.
 	wait until image build process finish.
 2. in root directory of this repo edit `env.sh` file and set ***HOST_SRC_PATH*** varible to **buildroot root directory**.
 like this:
@@ -43,10 +43,9 @@ like this:
 
 * * *
 ## **Build**:
-In container run  `auto.sh` script to start building
-it will download about 6 GB of data and need  26 GB of storage space
+In container run  `auto.sh` script to start building.
+it will download about 6 GB of data and need  26 GB of storage space.
 If every thing goes well after few houres *(depends on your network, storage and CPU)* build will finish successfully with this output:
-
 ```
 INFO: hdimage(sdcard.img): adding partition 'loader1' (in MBR) from 'idbloader.img' ...
 INFO: hdimage(sdcard.img): adding partition 'loader2' (in MBR) from 'uboot.img' ...
