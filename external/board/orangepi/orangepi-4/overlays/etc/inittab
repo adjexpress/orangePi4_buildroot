@@ -12,8 +12,8 @@
 # runlevels == ignored
 # action    == one of sysinit, respawn, askfirst, wait, and once
 # process   == program to run
-# ::sysinit:/usr/bin/fbv -d 1 /etc/bootanim/logo.bmp
-::sysinit:/usr/bin/fbv -d 1 /etc/bootanim/minoosa_logo.jpg
+::sysinit:/usr/bin/fbv -d 1 /etc/bootanim/logo.bmp
+# ::sysinit:/usr/bin/fbv -d 1 /etc/bootanim/minoosa_logo.jpg
 # Startup the system
 ::sysinit:/bin/mount -t proc proc /proc
 #::sysinit:/bin/mount -o remount,rw /
