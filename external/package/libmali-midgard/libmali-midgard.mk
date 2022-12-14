@@ -7,6 +7,23 @@
 LIBMALI_MIDGARD_VERSION = 8f79d9779786328410d19559fb66932b7b6ae74d
 LIBMALI_MIDGARD_SITE = $(call github,radxa,libmali,$(LIBMALI_MIDGARD_VERSION))
 BR_NO_CHECK_HASH_FOR += libmali-midgard-8f79d9779786328410d19559fb66932b7b6ae74d.tar.gz
+
+# LIBMALI_MIDGARD_VERSION = 309268f7a34ca0bba0ab94a0b09feb0191c77fb8
+# LIBMALI_MIDGARD_SITE = https://github.com/JeffyCN/mirrors
+# # LIBMALI_MIDGARD_SITE = $(call github,effyCN,mirrors,$(LIBMALI_MIDGARD_VERSION))
+# LIBMALI_MIDGARD_SITE_METHOD = git
+
+
+######
+#  for this one you should download archive manualy
+#  and put it in $(BR2_EXTERNAL)/package/libmali-midgard/src directory
+#  using this command: wget https://github.com/JeffyCN/mirrors/archive/libmali.tar.gz
+##
+# LIBMALI_MIDGARD_SITE = file://$(BR2_EXTERNAL)/package/libmali-midgard/src
+# LIBMALI_MIDGARD_SOURCE = libmali-midgard.tar.gz
+# LIBMALI_MIDGARD_METHOD = file
+# BR_NO_CHECK_HASH_FOR += libmali-midgard.tar.gz
+
 LIBMALI_MIDGARD_LICENSE = Proprietary
 LIBMALI_MIDGARD_LICENSE_FILES = END_USER_LICENCE_AGREEMENT.txt
 LIBMALI_MIDGARD_INSTALL_STAGING = YES
