@@ -1,0 +1,1 @@
+minoosa -2 users -2 =minco /home/minoosa /bin/zsh sys,network,power,lp,wheel,autologin,audio,video,dialout,tape,bin,tty,netdev,lock,sshd,nobody,users Minoosa SBC user
