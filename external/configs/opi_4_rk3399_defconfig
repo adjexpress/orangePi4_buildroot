@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2022.02-444-gaeee90ec-dirty Configuration
+# Buildroot 2022.02 Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_EXTERNAL_OrangePi_4_PATH="/opt/opi4_build_env"
@@ -145,7 +145,8 @@ BR2_HOST_DIR="$(BASE_DIR)/host"
 #
 # Mirrors and Download locations
 #
-BR2_PRIMARY_SITE=""
+BR2_PRIMARY_SITE="http://sources.buildroot.net"
+# BR2_PRIMARY_SITE_ONLY is not set
 BR2_BACKUP_SITE="http://sources.buildroot.net"
 BR2_KERNEL_MIRROR="https://cdn.kernel.org/pub"
 BR2_GNU_MIRROR="http://ftpmirror.gnu.org"
@@ -208,7 +209,6 @@ BR2_TOOLCHAIN=y
 BR2_TOOLCHAIN_USES_GLIBC=y
 # BR2_TOOLCHAIN_BUILDROOT is not set
 BR2_TOOLCHAIN_EXTERNAL=y
-# BR2_GCC_VERSION_8_X is not set
 
 #
 # Toolchain External Options
@@ -418,7 +418,7 @@ BR2_ROOTFS_DEVICE_TABLE="system/device_table.txt"
 # BR2_ROOTFS_DEVICE_TABLE_SUPPORTS_EXTENDED_ATTRIBUTES is not set
 # BR2_ROOTFS_MERGED_USR is not set
 BR2_TARGET_ENABLE_ROOT_LOGIN=y
-BR2_TARGET_GENERIC_ROOT_PASSWD=""
+BR2_TARGET_GENERIC_ROOT_PASSWD="minco"
 # BR2_SYSTEM_BIN_SH_BUSYBOX is not set
 # BR2_SYSTEM_BIN_SH_BASH is not set
 # BR2_SYSTEM_BIN_SH_DASH is not set
@@ -444,7 +444,7 @@ BR2_SYSTEM_DEFAULT_PATH="/bin:/sbin:/usr/bin:/usr/sbin"
 BR2_GENERATE_LOCALE=""
 # BR2_SYSTEM_ENABLE_NLS is not set
 # BR2_TARGET_TZ_INFO is not set
-BR2_ROOTFS_USERS_TABLES=""
+BR2_ROOTFS_USERS_TABLES="${BR2_EXTERNAL}/board/orangepi/orangepi-4/user_table.txt"
 BR2_ROOTFS_OVERLAY="${BR2_EXTERNAL}/board/orangepi/orangepi-4/overlays"
 BR2_ROOTFS_PRE_BUILD_SCRIPT=""
 BR2_ROOTFS_POST_BUILD_SCRIPT="${BR2_EXTERNAL}/board/orangepi/orangepi-4/post-build.sh"
@@ -541,8 +541,8 @@ BR2_PACKAGE_ALSA_UTILS_ALSAMIXER=y
 # BR2_PACKAGE_ALSA_UTILS_ALSAUCM is not set
 # BR2_PACKAGE_ALSA_UTILS_ALSATPLG is not set
 # BR2_PACKAGE_ALSA_UTILS_AMIDI is not set
-# BR2_PACKAGE_ALSA_UTILS_AMIXER is not set
-# BR2_PACKAGE_ALSA_UTILS_APLAY is not set
+BR2_PACKAGE_ALSA_UTILS_AMIXER=y
+BR2_PACKAGE_ALSA_UTILS_APLAY=y
 # BR2_PACKAGE_ALSA_UTILS_APLAYMIDI is not set
 # BR2_PACKAGE_ALSA_UTILS_ARECORDMIDI is not set
 # BR2_PACKAGE_ALSA_UTILS_ASEQDUMP is not set
@@ -576,7 +576,8 @@ BR2_PACKAGE_KODI_ARCH_SUPPORTS=y
 BR2_PACKAGE_KODI_PLATFORM_SUPPORTS=y
 BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_GBM=y
 # BR2_PACKAGE_LAME is not set
-# BR2_PACKAGE_MADPLAY is not set
+BR2_PACKAGE_MADPLAY=y
+BR2_PACKAGE_MADPLAY_ALSA=y
 # BR2_PACKAGE_MIMIC is not set
 # BR2_PACKAGE_MINIMODEM is not set
 
@@ -640,7 +641,6 @@ BR2_PACKAGE_PULSEAUDIO=y
 # BR2_PACKAGE_BABELTRACE2 is not set
 # BR2_PACKAGE_BLKTRACE is not set
 # BR2_PACKAGE_BONNIE is not set
-BR2_PACKAGE_BPFTOOL_ARCH_SUPPORTS=y
 
 #
 # bpftool needs a uClibc or glibc toolchain w/ wchar, dynamic library, threads, headers >= 4.12
@@ -716,7 +716,7 @@ BR2_PACKAGE_PTM2HUMAN_ARCH_SUPPORTS=y
 # BR2_PACKAGE_STRESS_NG is not set
 
 #
-# sysdig needs a glibc toolchain w/ C++, threads, gcc >= 4.8, dynamic library, a Linux kernel, and luajit or lua 5.1 to be built
+# sysdig needs a glibc or uclibc toolchain w/ C++, threads, gcc >= 4.8, dynamic library, a Linux kernel, and luajit or lua 5.1 to be built
 #
 # BR2_PACKAGE_TCF_AGENT is not set
 BR2_PACKAGE_TCF_AGENT_ARCH="a64"
@@ -1101,7 +1101,6 @@ BR2_PACKAGE_FLASHROM_ARCH_SUPPORTS=y
 #
 # ofono needs a toolchain w/ dynamic library, wchar, threads, headers >= 4.12
 #
-# BR2_PACKAGE_OLA is not set
 # BR2_PACKAGE_OPEN2300 is not set
 # BR2_PACKAGE_OPENFPGALOADER is not set
 # BR2_PACKAGE_OPENIPMI is not set
@@ -1225,7 +1224,7 @@ BR2_PACKAGE_ALSA_LIB_SEQ=y
 BR2_PACKAGE_ALSA_LIB_UCM=y
 BR2_PACKAGE_ALSA_LIB_ALISP=y
 BR2_PACKAGE_ALSA_LIB_OLD_SYMBOLS=y
-# BR2_PACKAGE_ALSA_PLUGINS is not set
+BR2_PACKAGE_ALSA_PLUGINS=y
 # BR2_PACKAGE_ALURE is not set
 # BR2_PACKAGE_AUBIO is not set
 # BR2_PACKAGE_BCG729 is not set
@@ -1245,10 +1244,16 @@ BR2_PACKAGE_FDK_AAC_ARCH_SUPPORTS=y
 # BR2_PACKAGE_LIBEBUR128 is not set
 # BR2_PACKAGE_LIBG7221 is not set
 # BR2_PACKAGE_LIBGSM is not set
-# BR2_PACKAGE_LIBID3TAG is not set
+BR2_PACKAGE_LIBID3TAG=y
 # BR2_PACKAGE_LIBILBC is not set
 # BR2_PACKAGE_LIBLO is not set
-# BR2_PACKAGE_LIBMAD is not set
+BR2_PACKAGE_LIBMAD=y
+BR2_PACKAGE_LIBMAD_OPTIMIZATION_DEFAULT=y
+# BR2_PACKAGE_LIBMAD_OPTIMIZATION_SPEED is not set
+# BR2_PACKAGE_LIBMAD_OPTIMIZATION_ACCURACY is not set
+# BR2_PACKAGE_LIBMAD_SSO is not set
+BR2_PACKAGE_LIBMAD_ASO=y
+# BR2_PACKAGE_LIBMAD_STRICT_ISO is not set
 # BR2_PACKAGE_LIBMODPLUG is not set
 # BR2_PACKAGE_LIBMPD is not set
 # BR2_PACKAGE_LIBMPDCLIENT is not set
@@ -1468,7 +1473,7 @@ BR2_PACKAGE_FREETYPE=y
 BR2_PACKAGE_GIFLIB=y
 
 #
-# granite needs libgtk3 and a toolchain w/ wchar, threads, gcc >= 4.9
+# granite needs libgtk3 and a toolchain w/ wchar, threads
 #
 # BR2_PACKAGE_GRAPHITE2 is not set
 
@@ -1889,6 +1894,7 @@ BR2_PACKAGE_LIBNL=y
 # BR2_PACKAGE_ORTP is not set
 # BR2_PACKAGE_PAHO_MQTT_C is not set
 # BR2_PACKAGE_PAHO_MQTT_CPP is not set
+# BR2_PACKAGE_PISTACHE is not set
 # BR2_PACKAGE_QDECODER is not set
 # BR2_PACKAGE_QPID_PROTON is not set
 # BR2_PACKAGE_RABBITMQ_C is not set
@@ -2054,7 +2060,6 @@ BR2_PACKAGE_OPENBLAS_ARCH_SUPPORTS=y
 # BR2_PACKAGE_P11_KIT is not set
 BR2_PACKAGE_POCO_ARCH_SUPPORTS=y
 # BR2_PACKAGE_POCO is not set
-BR2_PACKAGE_HOST_PROTOBUF_ARCH_SUPPORTS=y
 BR2_PACKAGE_PROTOBUF_ARCH_SUPPORTS=y
 # BR2_PACKAGE_PROTOBUF is not set
 # BR2_PACKAGE_PROTOBUF_C is not set
@@ -2065,7 +2070,6 @@ BR2_PACKAGE_PROTOBUF_ARCH_SUPPORTS=y
 # BR2_PACKAGE_SHAPELIB is not set
 BR2_PACKAGE_SKALIBS=y
 # BR2_PACKAGE_SPHINXBASE is not set
-# BR2_PACKAGE_TBB is not set
 # BR2_PACKAGE_TINYCBOR is not set
 # BR2_PACKAGE_UVW is not set
 # BR2_PACKAGE_XAPIAN is not set
@@ -2524,35 +2528,35 @@ BR2_PACKAGE_WPA_SUPPLICANT_DBUS=y
 #
 
 #
-# Please note:                                           
+# Please note:
 #
 
 #
-# - Buildroot does *not* generate binary packages,       
+# - Buildroot does *not* generate binary packages,
 #
 
 #
-# - Buildroot does *not* install any package database.   
+# - Buildroot does *not* install any package database.
 #
 
 #
-# *                                                      
+# *
 #
 
 #
-# It is up to you to provide those by yourself if you    
+# It is up to you to provide those by yourself if you
 #
 
 #
-# want to use any of those package managers.             
+# want to use any of those package managers.
 #
 
 #
-# *                                                      
+# *
 #
 
 #
-# See the manual:                                        
+# See the manual:
 #
 
 #
@@ -2617,7 +2621,6 @@ BR2_PACKAGE_ZSH=y
 # BR2_PACKAGE_EASY_RSA is not set
 # BR2_PACKAGE_FILE is not set
 # BR2_PACKAGE_GNUPG is not set
-BR2_PACKAGE_GNUPG2_DEPENDS=y
 # BR2_PACKAGE_GNUPG2 is not set
 # BR2_PACKAGE_INOTIFY_TOOLS is not set
 # BR2_PACKAGE_LOCKFILE_PROGS is not set
@@ -2780,7 +2783,6 @@ BR2_PACKAGE_UTIL_LINUX_BINARIES=y
 # BR2_PACKAGE_UTIL_LINUX_FSCK is not set
 # BR2_PACKAGE_UTIL_LINUX_HARDLINK is not set
 # BR2_PACKAGE_UTIL_LINUX_HWCLOCK is not set
-# BR2_PACKAGE_UTIL_LINUX_IPCMK is not set
 # BR2_PACKAGE_UTIL_LINUX_IPCRM is not set
 # BR2_PACKAGE_UTIL_LINUX_IPCS is not set
 # BR2_PACKAGE_UTIL_LINUX_KILL is not set
@@ -2789,7 +2791,6 @@ BR2_PACKAGE_UTIL_LINUX_BINARIES=y
 # BR2_PACKAGE_UTIL_LINUX_LOGGER is not set
 # BR2_PACKAGE_UTIL_LINUX_LOGIN is not set
 # BR2_PACKAGE_UTIL_LINUX_LOSETUP is not set
-# BR2_PACKAGE_UTIL_LINUX_LSFD is not set
 # BR2_PACKAGE_UTIL_LINUX_LSLOGINS is not set
 # BR2_PACKAGE_UTIL_LINUX_LSMEM is not set
 # BR2_PACKAGE_UTIL_LINUX_MESG is not set
@@ -3007,7 +3008,6 @@ BR2_PACKAGE_HOST_KMOD=y
 # BR2_PACKAGE_HOST_LLD is not set
 # BR2_PACKAGE_HOST_LPC3250LOADER is not set
 # BR2_PACKAGE_HOST_LTTNG_BABELTRACE is not set
-# BR2_PACKAGE_HOST_LZMA_ALONE is not set
 # BR2_PACKAGE_HOST_MENDER_ARTIFACT is not set
 # BR2_PACKAGE_HOST_MESON_TOOLS is not set
 BR2_PACKAGE_HOST_MKPASSWD=y
@@ -3067,7 +3067,6 @@ BR2_PACKAGE_HOST_UTIL_LINUX=y
 #
 # Legacy options removed in 2022.02
 #
-# BR2_PACKAGE_LIBCURL_LIBNSS is not set
 # BR2_PACKAGE_WESTON_DEFAULT_FBDEV is not set
 # BR2_PACKAGE_WESTON_FBDEV is not set
 # BR2_PACKAGE_PYTHON_PYCLI is not set
@@ -3151,6 +3150,7 @@ BR2_TARGET_GRUB2_BUILTIN_CONFIG=""
 # BR2_PACKAGE_KODI_LIBVA is not set
 # BR2_PACKAGE_PYTHON_COHERENCE is not set
 # BR2_PACKAGE_PHP_EXT_XMLRPC is not set
+# BR2_GCC_VERSION_8_X is not set
 
 #
 # Legacy options removed in 2021.05
